@@ -1,5 +1,21 @@
 'use client';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function Page() {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check if user is already "logged in"
+    const loggedIn = true; // You can improve this later if needed
+
+    if (loggedIn) {
+      router.replace('/'); // send them away from login
+    }
+  }, []);
+'use client';
+
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useActionState, useEffect, useState } from 'react';
