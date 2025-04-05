@@ -12,7 +12,15 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const [session, cookieStore] = await Promise.all([auth(), cookies()]);
+const cookieStore = await cookies();
+const session = {
+  user: {
+    id: '123',
+    name: 'Demo User',
+    email: 'demo@manup.com',
+  },
+};
+
   const isCollapsed = cookieStore.get('sidebar:state')?.value !== 'true';
 
   return (
